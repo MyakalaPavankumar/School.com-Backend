@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add New Admin</h1>
+            <h1>Change Password</h1>
           </div>
         
         </div>
@@ -21,29 +21,25 @@
         <div class="row">
           <!-- left column -->
           <div class="col-md-12">
-          
+              @include('_message');
               <!-- form start -->
               <form method="POST" action="">
                 {{ csrf_field() }}
                 <div class="card-body">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" name="name" value="{{ old('name')}}" required placeholder="Enter Name">
+                  <div class="form-group">
+                    <label>Old Password</label>
+                    <input type="password" class="form-control" name="old_password" value="" required placeholder="Old Password">
                   </div>
                   <div class="form-group">
-                    <label>Email address</label>
-                    <input type="email" class="form-control" name="email" value="{{ old('email')}}" required placeholder="Enter email">
-                    <div style="color:red">{{$errors->first('email')}}</div>
+                    <label>New Password</label>
+                    <input type="password" class="form-control" name="new_password" value="" required placeholder="New Password">
                   </div>
-                  <div class="form-group">
-                    <label >Password</label>
-                    <input type="password" class="form-control" name="password" required placeholder="Password">
-                  </div>
+                 
                
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>
