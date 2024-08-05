@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add New Student</h1>
+            <h1>Edit Student</h1>
           </div>
         
         </div>
@@ -29,12 +29,12 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>First Name <span style="color: red;">*</span> </label>
-                      <input type="text" class="form-control" name="name" value="{{ old('name')}}" required placeholder="First Name">
+                      <input type="text" class="form-control" name="name" value="{{ old('name',$getRecord->name)}}" required placeholder="First Name">
                       <div style="color:red">{{$errors->first('name')}}</div>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Last Name <span style="color: red;">*</span> </label>
-                      <input type="text" class="form-control" name="last_name" value="{{ old('last_name')}}" required placeholder="Last Name">
+                      <input type="text" class="form-control" name="last_name" value="{{ old('last_name',$getRecord->last_name)}}" required placeholder="Last Name">
                       <div style="color:red">{{$errors->first('last_name')}}</div>
                     </div>
                   </div> 
@@ -42,12 +42,12 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>Admission Number <span style="color: red;">*</span> </label>
-                      <input type="text" class="form-control" name="admission_number" value="{{ old('admission_number')}}" required placeholder="Admission Number">
+                      <input type="text" class="form-control" name="admission_number" value="{{ old('admission_number',$getRecord->admission_number)}}" required placeholder="Admission Number">
                       <div style="color:red">{{$errors->first('admission_number')}}</div>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Roll Number </label>
-                      <input type="text" class="form-control" name="roll_number" value="{{ old('roll_number')}}"  placeholder="Roll Number">
+                      <input type="text" class="form-control" name="roll_number" value="{{ old('roll_number',$getRecord->roll_number)}}"  placeholder="Roll Number">
                       <div style="color:red">{{$errors->first('roll_number')}}</div>
                     </div>
                   </div> 
@@ -58,7 +58,7 @@
                       <select class="form-control" name="class_id" id="" required>
                         <option value="">Select class</option>
                           @foreach ($getClass as $value )
-                           <option {{ (old('class_id') == $value->id) ? 'selected' : ''}} value="{{$value->id}}"> {{$value->name}}</option>
+                           <option {{ (old('class_id',$getRecord->class_id) == $value->id) ? 'selected' : ''}} value="{{$value->id}}"> {{$value->name}}</option>
                           @endforeach
                       </select>
                       <div style="color:red">{{$errors->first('class_id')}}</div>
@@ -78,12 +78,12 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>Date Of Birth <span style="color: red;">*</span> </label>
-                      <input type="date" class="form-control" name="date_of_birth" value="{{ old('date_of_birth')}}" required>
+                      <input type="date" class="form-control" name="date_of_birth" value="{{ old('date_of_birth',$getRecord->date_of_birth)}}" required>
                       <div style="color:red">{{$errors->first('date_of_birth')}}</div>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Caste </label>
-                      <input type="text" class="form-control" name="caste" value="{{ old('caste')}}"  placeholder="Caste">
+                      <input type="text" class="form-control" name="caste" value="{{ old('caste',$getRecord->caste)}}"  placeholder="Caste">
                       <div style="color:red">{{$errors->first('caste')}}</div>
                     </div>
                   </div> 
@@ -91,12 +91,12 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>Religion</label>
-                      <input type="text" class="form-control" name="religion" value="{{ old('religion')}}" placeholder="Religion">
+                      <input type="text" class="form-control" name="religion" value="{{ old('religion',$getRecord->religion)}}" placeholder="Religion">
                       <div style="color:red">{{$errors->first('religion')}}</div>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Mobile Number </label>
-                      <input type="number" class="form-control" name="mobile_number" value="{{ old('mobile_number')}}"  placeholder="Mobile Number">
+                      <input type="number" class="form-control" name="mobile_number" value="{{ old('mobile_number',$getRecord->mobile_number)}}"  placeholder="Mobile Number">
                       <div style="color:red">{{$errors->first('mobile_number')}}</div>
                     </div>
                   </div>
@@ -104,7 +104,7 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>Admission Date <span style="color: red;">*</span> </label>
-                      <input type="date" class="form-control" name="admission_date" value="{{ old('admission_date')}}" required placeholder="Admission Date">
+                      <input type="date" class="form-control" name="admission_date" value="{{ old('admission_date',$getRecord->admission_date)}}" required placeholder="Admission Date">
                       <div style="color:red">{{$errors->first('admission_date')}}</div>
                     </div>
                     <div class="form-group col-md-6">
@@ -117,12 +117,12 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>Blood Group</label>
-                      <input type="text" class="form-control" name="blood_group" value="{{ old('blood_group')}}" placeholder="Bloog Group">
+                      <input type="text" class="form-control" name="blood_group" value="{{ old('blood_group',$getRecord->blood_group)}}" placeholder="Bloog Group">
                       <div style="color:red">{{$errors->first('blood_group')}}</div>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Height</label>
-                      <input type="text" class="form-control" name="height" value="{{ old('height')}}"  placeholder="Height">
+                      <input type="text" class="form-control" name="height" value="{{ old('height',$getRecord->height)}}"  placeholder="Height">
                       <div style="color:red">{{$errors->first('height')}}</div>
                     </div>
                   </div>
@@ -130,7 +130,7 @@
                   <div class="form-group col-md-12" style="display: flex;">
                     <div class="form-group col-md-6">
                       <label>Weight</label>
-                      <input type="text" class="form-control" name="weight" value="{{ old('weight')}}" placeholder="Weight">
+                      <input type="text" class="form-control" name="weight" value="{{ old('weight',$getRecord->weight)}}" placeholder="Weight">
                       <div style="color:red">{{$errors->first('weight')}}</div>
                     </div>
                     <div class="form-group col-md-6">
@@ -148,18 +148,19 @@
 
                   <div class="form-group">
                     <label>Email address<span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" name="email" value="{{ old('email')}}" required placeholder="Enter email">
+                    <input type="email" class="form-control" name="email" value="{{ old('email',$getRecord->email)}}" required placeholder="Enter email">
                     <div style="color:red">{{$errors->first('email')}}</div>
                   </div>
                   <div class="form-group">
-                    <label >Password<span style="color: red;">*</span></label>
-                    <input type="password" class="form-control" name="password" required placeholder="Password">
+                    <label >Password</label>
+                    <input type="text" class="form-control" name="password"  placeholder="Password">
+                    <p>Due you want change the Password so please add new password</p>
                   </div>
                
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>
